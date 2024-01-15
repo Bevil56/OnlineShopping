@@ -47,7 +47,7 @@ public class SelectSupplier extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Purchase ID", "User ID", "User Name", "User Phone", "Product ID", "Product Name", "Quantity", "Price", "Total", "Purchase Date", "Address", "Received Date", "Supplier Name", "Status"
+                "Purchase ID", "User ID", "Username", "User Phone", "Product ID", "Product Name", "Quantity", "Price", "Total", "Purchase Date", "Address", "Received Date", "Supplier Name", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
