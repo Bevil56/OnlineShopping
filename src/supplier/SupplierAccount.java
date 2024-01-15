@@ -48,7 +48,7 @@ public class SupplierAccount extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 350));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

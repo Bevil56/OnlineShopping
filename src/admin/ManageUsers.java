@@ -4,15 +4,19 @@
  */
 package admin;
 
+import java.awt.Color;
+
 /**
  *
  * @author Vinh
  */
 public class ManageUsers extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ManageUsers
-     */
+    
+    Color textPrimaryColor = new Color(204,204,204);
+    Color primaryColor = new Color(0,102,153);
+    Color sidePrimaryColor = new Color(255,204,255);
+    
     public ManageUsers() {
         initComponents();
     }
@@ -59,7 +63,7 @@ public class ManageUsers extends javax.swing.JFrame {
         setFocusable(false);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 350));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,6 +131,7 @@ public class ManageUsers extends javax.swing.JFrame {
         btnUpdate.setText("Update");
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 120, 30));
 
+        jLabel8.setBackground(new java.awt.Color(153, 204, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel8.setText("X");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,7 +228,12 @@ public class ManageUsers extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        System.exit(0);
+        setVisible(false);
+        AdminDashboard.jPanel26.setBackground(primaryColor);
+        AdminDashboard.jPanel27.setBackground(sidePrimaryColor);
+        AdminDashboard.jLabel48.setForeground(textPrimaryColor);
+        AdminDashboard.jLabel49.setVisible(true);
+        AdminDashboard.jLabel50.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed

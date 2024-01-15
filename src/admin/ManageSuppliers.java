@@ -4,15 +4,18 @@
  */
 package admin;
 
+import java.awt.Color;
+
 /**
  *
  * @author Vinh
  */
 public class ManageSuppliers extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ManagerSupplier
-     */
+    Color textPrimaryColor = new Color(204,204,204);
+    Color primaryColor = new Color(0,102,153);
+    Color sidePrimaryColor = new Color(255,204,255);
+    
     public ManageSuppliers() {
         initComponents();
     }
@@ -52,7 +55,7 @@ public class ManageSuppliers extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 350));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,7 +192,12 @@ public class ManageSuppliers extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        System.exit(0);
+        setVisible(false);
+        AdminDashboard.jPanel4.setBackground(primaryColor);
+        AdminDashboard.jPanel5.setBackground(sidePrimaryColor);
+        AdminDashboard.jLabel5.setForeground(textPrimaryColor);
+        AdminDashboard.jLabel6.setVisible(true);
+        AdminDashboard.jLabel7.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     /**

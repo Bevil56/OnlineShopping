@@ -4,15 +4,19 @@
  */
 package admin;
 
+import java.awt.Color;
+
 /**
  *
  * @author Vinh
  */
 public class SelectSupplier extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SelectSupplier
-     */
+    
+    Color textPrimaryColor = new Color(204,204,204);
+    Color primaryColor = new Color(0,102,153);
+    Color sidePrimaryColor = new Color(255,204,255);
+    
     public SelectSupplier() {
         initComponents();
     }
@@ -40,7 +44,7 @@ public class SelectSupplier extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,7 +175,12 @@ public class SelectSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        System.exit(0);
+        setVisible(false);
+        AdminDashboard.jPanel18.setBackground(primaryColor);
+        AdminDashboard.jPanel19.setBackground(sidePrimaryColor);
+        AdminDashboard.jLabel36.setForeground(textPrimaryColor);
+        AdminDashboard.jLabel37.setVisible(true);
+        AdminDashboard.jLabel38.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

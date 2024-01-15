@@ -18,6 +18,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
      */
     public SupplierDashboard() {
         initComponents();
+        init();
     }
 
     /**
@@ -62,7 +63,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,11 +142,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 340, 70));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 102, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("My Account");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
@@ -170,13 +171,13 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account_light.png"))); // NOI18N
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 32, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 340, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 340, 40));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(0, 102, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Delivery");
         jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
@@ -201,13 +202,13 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delivery_light.png"))); // NOI18N
         jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 32, 40));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 340, 40));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 340, 40));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(0, 102, 153));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("My Deliveries");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
@@ -232,7 +233,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/purchasedetails_light.png"))); // NOI18N
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 32, 40));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 340, 40));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 340, 40));
 
         jPanel11.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 340, 650));
 
@@ -291,6 +292,19 @@ public class SupplierDashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void init(){
+        icons();
+    }
+    
+    private void icons(){
+        jLabel9.setVisible(true);
+        jLabel10.setVisible(false);
+        jLabel12.setVisible(true);
+        jLabel13.setVisible(false);
+        jLabel6.setVisible(true);
+        jLabel7.setVisible(false);
+    }
+    
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         int a = JOptionPane.showConfirmDialog(this, "Do you want to logout now?", "Logout", JOptionPane.YES_NO_OPTION);
         if(a == 0){
