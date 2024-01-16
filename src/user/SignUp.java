@@ -50,6 +50,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        btnRegister1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -141,7 +142,7 @@ public class SignUp extends javax.swing.JFrame {
 
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegister.setText("Sign up");
-        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, 120, 30));
+        jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel8.setText("X");
@@ -171,6 +172,15 @@ public class SignUp extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Username");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        btnRegister1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegister1.setText("Back");
+        btnRegister1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegister1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRegister1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -227,6 +237,11 @@ public class SignUp extends javax.swing.JFrame {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_jPanel1MouseDragged
 
+    private void btnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegister1ActionPerformed
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegister1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +279,7 @@ public class SignUp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnRegister1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

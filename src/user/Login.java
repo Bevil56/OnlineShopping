@@ -4,8 +4,17 @@
  */
 package user;
 
+import admin.AdminDashboard;
+import connection.MyConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import supplier.SupplierDashboard;
 
 /**
  *
@@ -14,9 +23,11 @@ import java.util.logging.Logger;
 public class Login extends javax.swing.JFrame {
 
     int xx, xy;
+    private ButtonGroup bg = new ButtonGroup();
 
     public Login() {
         initComponents();
+        init();
     }
 
     /**
@@ -43,9 +54,9 @@ public class Login extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         btnLogin = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -168,7 +179,7 @@ public class Login extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 290, 30));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 290, 35));
 
         jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +187,7 @@ public class Login extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 290, 30));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 290, 35));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Email");
@@ -188,31 +199,46 @@ public class Login extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hide.png"))); // NOI18N
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 295, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/visible.png"))); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 295, -1, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton1.setText("Supplier");
-        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
-
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton2.setText("Admin");
+        jRadioButton2.setText("Supplier");
         jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton3.setText("User");
+        jRadioButton3.setText("Admin");
         jRadioButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
+        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jRadioButton1.setText("User");
+        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(51, 51, 51));
         btnLogin.setText("Login");
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -223,11 +249,21 @@ public class Login extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setText("Sign up");
         jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setText("Forgot password?");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 520, 700));
@@ -235,6 +271,36 @@ public class Login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void init() {
+        icons();
+        bg.add(jRadioButton1);
+        bg.add(jRadioButton2);
+        bg.add(jRadioButton3);
+        jRadioButton1.setSelected(true);
+    }
+
+    private void icons() {
+        jLabel11.setVisible(true);
+        jLabel12.setVisible(false);
+    }
+
+    private boolean isEmpty() {
+        if (jTextField1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email address is required!", "Warning", 2);
+            return false;
+        }
+        if (!jTextField1.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid email address!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (String.valueOf(jPasswordField1.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password is required!", "Warning", 2);
+            return false;
+        }
+        return true;
+    }
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         System.exit(0);
@@ -276,6 +342,99 @@ public class Login extends javax.swing.JFrame {
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
 
     }//GEN-LAST:event_jPanel2MouseDragged
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        new SignUp().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        new ForgotPassword().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        jPasswordField1.setEchoChar((char) 0);
+        jLabel11.setVisible(false);
+        jLabel12.setVisible(true);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        jPasswordField1.setEchoChar('*');
+        jLabel11.setVisible(true);
+        jLabel12.setVisible(false);
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        if (isEmpty()) {
+            String email = jTextField1.getText();
+            String password = String.valueOf(jPasswordField1.getPassword());
+            if (jRadioButton1.isSelected()) {
+                try {
+                    Connection connection = MyConnection.getConnection();
+                    PreparedStatement ps;
+
+                    ps = connection.prepareStatement("select * from [user] where uemail = ? and upassword = ?");
+                    ps.setString(1, email);
+                    ps.setString(2, password);
+
+                    ResultSet rs = ps.executeQuery();
+                    if (rs.next()) {
+                        UserDashboard ud = new UserDashboard();
+                        ud.setVisible(true);
+                        ud.pack();
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (jRadioButton2.isSelected()) {
+                try {
+                    Connection connection = MyConnection.getConnection();
+                    PreparedStatement ps;
+
+                    ps = connection.prepareStatement("select * from supplier where semail = ? and spassword = ?");
+                    ps.setString(1, email);
+                    ps.setString(2, password);
+
+                    ResultSet rs = ps.executeQuery();
+                    if (rs.next()) {
+                        SupplierDashboard sd = new SupplierDashboard();
+                        sd.setVisible(true);
+                        sd.pack();
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else if (jRadioButton3.isSelected()) {
+                try {
+                    Connection connection = MyConnection.getConnection();
+                    PreparedStatement ps;
+
+                    ps = connection.prepareStatement("select * from admin where email = ? and password = ?");
+                    ps.setString(1, email);
+                    ps.setString(2, password);
+
+                    ResultSet rs = ps.executeQuery();
+                    if (rs.next()) {
+                        AdminDashboard ad = new AdminDashboard();
+                        ad.setVisible(true);
+                        ad.pack();
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments

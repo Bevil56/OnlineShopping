@@ -11,7 +11,7 @@ public class MyConnection {
 
     public static Connection getConnection() {
         try {
-            connection = DriverManager.getConnection(url);
+            connection = DriverManager.getConnection(url);          
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "" + ex, "", JOptionPane.WARNING_MESSAGE);
         }
