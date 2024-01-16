@@ -13,9 +13,8 @@ import java.util.logging.Logger;
  */
 public class ForgotPassword extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ForgotPassword
-     */
+    int xx, xy;
+    
     public ForgotPassword() {
         initComponents();
     }
@@ -57,6 +56,16 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 450));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 450));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
@@ -157,10 +166,21 @@ public class ForgotPassword extends javax.swing.JFrame {
             try {
                 Thread.sleep(40);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xx, y - xy);
+    }//GEN-LAST:event_jPanel1MouseDragged
 
     /**
      * @param args the command line arguments

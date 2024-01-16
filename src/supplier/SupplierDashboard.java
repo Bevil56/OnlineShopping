@@ -20,6 +20,8 @@ public class SupplierDashboard extends javax.swing.JFrame {
     Color sideColor = new Color(255,153,255);
     Color textSelectionColor = new Color(255,255,255);
     
+    int xx, xy;
+    
     public SupplierDashboard() {
         initComponents();
         init();
@@ -70,9 +72,29 @@ public class SupplierDashboard extends javax.swing.JFrame {
             }
         });
 
+        jPanel11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel11MouseDragged(evt);
+            }
+        });
+        jPanel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel11MousePressed(evt);
+            }
+        });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel3MouseDragged(evt);
+            }
+        });
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel3MousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -379,10 +401,29 @@ public class SupplierDashboard extends javax.swing.JFrame {
             try {
                 Thread.sleep(40);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SupplierDashboard.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
+    private void jPanel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MousePressed
+
+    }//GEN-LAST:event_jPanel11MousePressed
+
+    private void jPanel11MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseDragged
+
+    }//GEN-LAST:event_jPanel11MouseDragged
+
+    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xx, y - xy);
+    }//GEN-LAST:event_jPanel3MouseDragged
 
     /**
      * @param args the command line arguments
