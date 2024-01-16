@@ -4,6 +4,9 @@
  */
 package user;
 
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,9 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class UserDashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UserDashboard
-     */
+    Color selectionColor = new Color(0,204,255);
+    Color sideColor = new Color(255,153,255);
+    Color textSelectionColor = new Color(255,255,255);
+    
     public UserDashboard() {
         initComponents();
         init();
@@ -63,6 +67,11 @@ public class UserDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -151,6 +160,11 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("My Account");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
         jPanel5.setBackground(new java.awt.Color(255, 204, 255));
@@ -182,6 +196,11 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Purchase");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
         jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
         jPanel7.setBackground(new java.awt.Color(255, 204, 255));
@@ -213,6 +232,11 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(204, 204, 204));
         jLabel11.setText("Purchase Details");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 280, 40));
 
         jPanel9.setBackground(new java.awt.Color(255, 204, 255));
@@ -330,7 +354,7 @@ public class UserDashboard extends javax.swing.JFrame {
      private void init(){
         icons();
     }
-    
+     
     private void icons(){
         jLabel9.setVisible(true);
         jLabel10.setVisible(false);
@@ -348,9 +372,52 @@ public class UserDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        jPanel6.setBackground(selectionColor);
+        jPanel7.setBackground(sideColor);
+        jLabel8.setForeground(textSelectionColor);
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(true);
+        Purchase purchase = new Purchase();
+        purchase.setVisible(true);
+        purchase.pack();
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        jPanel8.setBackground(selectionColor);
+        jPanel9.setBackground(sideColor);
+        jLabel11.setForeground(textSelectionColor);
+        jLabel12.setVisible(false);
+        jLabel13.setVisible(true);
+        PurchaseDetails purchaseDetails = new PurchaseDetails();
+        purchaseDetails.setVisible(true);
+        purchaseDetails.pack();
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        jPanel4.setBackground(selectionColor);
+        jPanel5.setBackground(sideColor);
+        jLabel5.setForeground(textSelectionColor);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(true);
+        UserAccount userAccount = new UserAccount();
+        userAccount.setVisible(true);
+        userAccount.pack();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        for (double i = 0; i <= 1.0; i += 0.1) {
+            String s = "" + i;
+            float f = Float.parseFloat(s);
+            this.setOpacity(f);
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
+                                 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -388,10 +455,10 @@ public class UserDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    public static javax.swing.JLabel jLabel10;
+    public static javax.swing.JLabel jLabel11;
+    public static javax.swing.JLabel jLabel12;
+    public static javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -402,21 +469,21 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    public static javax.swing.JPanel jPanel4;
+    public static javax.swing.JPanel jPanel5;
+    public static javax.swing.JPanel jPanel6;
+    public static javax.swing.JPanel jPanel7;
+    public static javax.swing.JPanel jPanel8;
+    public static javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }

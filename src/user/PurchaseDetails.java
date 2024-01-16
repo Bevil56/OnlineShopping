@@ -4,15 +4,20 @@
  */
 package user;
 
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Vinh
  */
 public class PurchaseDetails extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PurchaseDetail
-     */
+    Color textPrimaryColor = new Color(204,204,204);
+    Color primaryColor = new Color(0,102,153);
+    Color sidePrimaryColor = new Color(255,204,255);
+    
     public PurchaseDetails() {
         initComponents();
     }
@@ -43,6 +48,11 @@ public class PurchaseDetails extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 700));
@@ -191,8 +201,26 @@ public class PurchaseDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        System.exit(0);
+        setVisible(false);
+        UserDashboard.jPanel8.setBackground(primaryColor);
+        UserDashboard.jPanel9.setBackground(sidePrimaryColor);
+        UserDashboard.jLabel11.setForeground(textPrimaryColor);
+        UserDashboard.jLabel12.setVisible(true);
+        UserDashboard.jLabel13.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        for (double i = 0; i <= 1.0; i += 0.1) {
+            String s = "" + i;
+            float f = Float.parseFloat(s);
+            this.setOpacity(f);
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
