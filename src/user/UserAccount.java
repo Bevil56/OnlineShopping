@@ -22,7 +22,6 @@ public class UserAccount extends javax.swing.JFrame {
 
     int xx, xy;
     private int uId;
-    public static boolean isDeleted = false;
     String[] info = new String[8];
 
     UserDao user = new UserDao();
@@ -31,7 +30,7 @@ public class UserAccount extends javax.swing.JFrame {
     public UserAccount(UserDashboard dashboard) {
         initComponents();
         init();
-        this.dashboard = dashboard;
+        UserAccount.dashboard = dashboard;
     }
 
     /**
@@ -67,7 +66,6 @@ public class UserAccount extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
         setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -103,6 +101,11 @@ public class UserAccount extends javax.swing.JFrame {
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 330, 30));
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 330, 30));
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -115,6 +118,11 @@ public class UserAccount extends javax.swing.JFrame {
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
+            }
+        });
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
             }
         });
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 330, 30));
@@ -180,7 +188,7 @@ public class UserAccount extends javax.swing.JFrame {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 40, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 50, 40));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hide.png"))); // NOI18N
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -232,8 +240,7 @@ public class UserAccount extends javax.swing.JFrame {
 
     private void init() {
         uId = user.getUserId(UserDashboard.userEmail.getText());
-        System.out.println(uId);
-        info = user.getUserInfo(uId);
+        info = user.getUsersInfo(uId);
         setValue();
     }
 
@@ -356,10 +363,10 @@ public class UserAccount extends javax.swing.JFrame {
                 String address = jTextField8.getText();
                 String password = String.valueOf(jPasswordField1.getPassword());
                 String phone = jTextField5.getText();
-                String question = jTextField6.toString();
+                String question = jTextField6.getText();
                 String answer = jTextField7.getText();
 
-                user.update(id, username, email, phone, phone, question, answer, address);
+                user.update(id, username, email, password, phone, question, answer, address);
                 UserDashboard.jPanel4.setBackground(primaryColor);
                 UserDashboard.jPanel5.setBackground(sidePrimaryColor);
                 UserDashboard.jLabel5.setForeground(textPrimaryColor);
@@ -372,11 +379,24 @@ public class UserAccount extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         user.delete(uId);
-        isDeleted = true;
         this.dispose();
         dashboard.exitToLogin();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        char input = evt.getKeyChar();
+        if (!(input < '0' || input > '9') && input != '\b') {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Username doesn't contain any numbers!", "Warning", 2);
+        }
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        if (!Character.isDigit(evt.getKeyChar())) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+   
     private boolean check() {
         String newEmail = jTextField3.getText();
         String newPhone = jTextField5.getText();

@@ -16,12 +16,12 @@ import user.Login;
  */
 public class SupplierDashboard extends javax.swing.JFrame {
 
-    Color selectionColor = new Color(0,204,255);
-    Color sideColor = new Color(255,153,255);
-    Color textSelectionColor = new Color(255,255,255);
-    
+    Color selectionColor = new Color(0, 204, 255);
+    Color sideColor = new Color(255, 153, 255);
+    Color textSelectionColor = new Color(255, 255, 255);
+
     int xx, xy;
-    
+
     public SupplierDashboard() {
         initComponents();
         init();
@@ -339,11 +339,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void init(){
+    private void init() {
         icons();
     }
-    
-    private void icons(){
+
+    private void icons() {
         jLabel9.setVisible(true);
         jLabel10.setVisible(false);
         jLabel12.setVisible(true);
@@ -351,14 +351,18 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel6.setVisible(true);
         jLabel7.setVisible(false);
     }
-    
+
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         int a = JOptionPane.showConfirmDialog(this, "Do you want to logout now?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(a == 0){
-            new Login().setVisible(true);
-            this.dispose();
+        if (a == 0) {
+            exitToLogin();
         }
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    public void exitToLogin() {
+        new Login().setVisible(true);
+        this.dispose();
+    }
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         jPanel6.setBackground(selectionColor);
@@ -388,7 +392,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jLabel5.setForeground(textSelectionColor);
         jLabel6.setVisible(false);
         jLabel7.setVisible(true);
-        SupplierAccount supplierAccount = new SupplierAccount();
+        SupplierAccount supplierAccount = new SupplierAccount(this);
         supplierAccount.setVisible(true);
         supplierAccount.pack();
     }//GEN-LAST:event_jLabel5MouseClicked
