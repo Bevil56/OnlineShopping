@@ -15,12 +15,12 @@ import user.Login;
  */
 public class ManageSuppliers extends javax.swing.JFrame {
 
-    Color textPrimaryColor = new Color(204,204,204);
-    Color primaryColor = new Color(0,102,153);
-    Color sidePrimaryColor = new Color(255,204,255);
-    
+    Color textPrimaryColor = new Color(204, 204, 204);
+    Color primaryColor = new Color(0, 102, 153);
+    Color sidePrimaryColor = new Color(255, 204, 255);
+
     int xx, xy;
-    
+
     public ManageSuppliers() {
         initComponents();
     }
@@ -133,13 +133,14 @@ public class ManageSuppliers extends javax.swing.JFrame {
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 170, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("X");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 20, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 40, 40));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hide.png"))); // NOI18N
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -212,12 +213,12 @@ public class ManageSuppliers extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        setVisible(false);
         AdminDashboard.jPanel4.setBackground(primaryColor);
         AdminDashboard.jPanel5.setBackground(sidePrimaryColor);
         AdminDashboard.jLabel5.setForeground(textPrimaryColor);
         AdminDashboard.jLabel6.setVisible(true);
         AdminDashboard.jLabel7.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

@@ -15,13 +15,12 @@ import user.Login;
  */
 public class SelectSupplier extends javax.swing.JFrame {
 
-    
-    Color textPrimaryColor = new Color(204,204,204);
-    Color primaryColor = new Color(0,102,153);
-    Color sidePrimaryColor = new Color(255,204,255);
-    
+    Color textPrimaryColor = new Color(204, 204, 204);
+    Color primaryColor = new Color(0, 102, 153);
+    Color sidePrimaryColor = new Color(255, 204, 255);
+
     int xx, xy;
-    
+
     public SelectSupplier() {
         initComponents();
     }
@@ -96,6 +95,7 @@ public class SelectSupplier extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("X");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,8 +133,7 @@ public class SelectSupplier extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,12 +194,12 @@ public class SelectSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        setVisible(false);
         AdminDashboard.jPanel18.setBackground(primaryColor);
         AdminDashboard.jPanel19.setBackground(sidePrimaryColor);
         AdminDashboard.jLabel36.setForeground(textPrimaryColor);
         AdminDashboard.jLabel37.setVisible(true);
         AdminDashboard.jLabel38.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

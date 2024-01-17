@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  */
 public class PurchaseDetails extends javax.swing.JFrame {
 
-    Color textPrimaryColor = new Color(204,204,204);
-    Color primaryColor = new Color(0,102,153);
-    Color sidePrimaryColor = new Color(255,204,255);
-    
+    Color textPrimaryColor = new Color(204, 204, 204);
+    Color primaryColor = new Color(0, 102, 153);
+    Color sidePrimaryColor = new Color(255, 204, 255);
+
     int xx, xy;
-    
+
     public PurchaseDetails() {
         initComponents();
     }
@@ -91,6 +91,7 @@ public class PurchaseDetails extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("X");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,10 +135,6 @@ public class PurchaseDetails extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -162,6 +159,9 @@ public class PurchaseDetails extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,12 +213,12 @@ public class PurchaseDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        setVisible(false);
         UserDashboard.jPanel8.setBackground(primaryColor);
         UserDashboard.jPanel9.setBackground(sidePrimaryColor);
         UserDashboard.jLabel11.setForeground(textPrimaryColor);
         UserDashboard.jLabel12.setVisible(true);
         UserDashboard.jLabel13.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

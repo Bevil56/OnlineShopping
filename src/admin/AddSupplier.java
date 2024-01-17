@@ -15,12 +15,12 @@ import user.Login;
  */
 public class AddSupplier extends javax.swing.JFrame {
 
-    Color textPrimaryColor = new Color(204,204,204);
-    Color primaryColor = new Color(0,102,153);
-    Color sidePrimaryColor = new Color(255,204,255);
-    
+    Color textPrimaryColor = new Color(204, 204, 204);
+    Color primaryColor = new Color(0, 102, 153);
+    Color sidePrimaryColor = new Color(255, 204, 255);
+
     int xx, xy;
-    
+
     public AddSupplier() {
         initComponents();
     }
@@ -142,13 +142,14 @@ public class AddSupplier extends javax.swing.JFrame {
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("X");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 20, 40));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 40));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/hide.png"))); // NOI18N
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -182,16 +183,16 @@ public class AddSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        setVisible(false);
         AdminDashboard.jPanel22.setBackground(primaryColor);
         AdminDashboard.jPanel23.setBackground(sidePrimaryColor);
         AdminDashboard.jLabel42.setForeground(textPrimaryColor);
         AdminDashboard.jLabel43.setVisible(true);
         AdminDashboard.jLabel44.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       for (double i = 0; i <= 1.0; i += 0.1) {
+        for (double i = 0; i <= 1.0; i += 0.1) {
             String s = "" + i;
             float f = Float.parseFloat(s);
             this.setOpacity(f);
@@ -210,8 +211,8 @@ public class AddSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseDragged
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-       xx = evt.getX();
-       xy = evt.getY();
+        xx = evt.getX();
+        xy = evt.getY();
     }//GEN-LAST:event_jPanel1MousePressed
 
     /**

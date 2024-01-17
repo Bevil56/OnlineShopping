@@ -40,7 +40,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        supplierEmail = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -84,7 +84,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -111,11 +111,11 @@ public class SupplierDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
-        jLabel3.setText("user@gmail.com");
+        supplierEmail.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        supplierEmail.setForeground(new java.awt.Color(255, 255, 255));
+        supplierEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        supplierEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user.png"))); // NOI18N
+        supplierEmail.setText("user@gmail.com");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -125,7 +125,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 735, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(supplierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(15, 15, 15))
@@ -137,7 +137,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(supplierEmail))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -146,7 +146,7 @@ public class SupplierDashboard extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -470,7 +470,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
@@ -488,5 +487,6 @@ public class SupplierDashboard extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel7;
     public static javax.swing.JPanel jPanel8;
     public static javax.swing.JPanel jPanel9;
+    public static javax.swing.JLabel supplierEmail;
     // End of variables declaration//GEN-END:variables
 }

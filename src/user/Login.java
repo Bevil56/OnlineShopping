@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(jLabel3)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 23, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -141,12 +141,13 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 600));
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(523, 600));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel2MouseDragged(evt);
@@ -160,13 +161,14 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("X");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 23, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 50, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 56)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -266,7 +268,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 520, 700));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 520, 600));
 
         pack();
         setLocationRelativeTo(null);
@@ -383,6 +385,7 @@ public class Login extends javax.swing.JFrame {
                         UserDashboard ud = new UserDashboard();
                         ud.setVisible(true);
                         ud.pack();
+                        UserDashboard.userEmail.setText(email);
                         this.dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
@@ -404,6 +407,7 @@ public class Login extends javax.swing.JFrame {
                         SupplierDashboard sd = new SupplierDashboard();
                         sd.setVisible(true);
                         sd.pack();
+                        SupplierDashboard.supplierEmail.setText(email);
                         this.dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
@@ -425,6 +429,7 @@ public class Login extends javax.swing.JFrame {
                         AdminDashboard ad = new AdminDashboard();
                         ad.setVisible(true);
                         ad.pack();
+                        AdminDashboard.adminEmail.setText(email);
                         this.dispose();
                     } else {
                         JOptionPane.showMessageDialog(this, "Incorrect email or password", "Login Failed!", 2);
