@@ -7,8 +7,6 @@ package admin;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import user.Login;
-
 /**
  *
  * @author Vinh
